@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>اطلبني · super app الخدمات اليومية</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <!-- AOS Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="toast-msg" id="liveToast">✅ تم الإرسال بنجاح</div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="logo">اطلبني<span class="logo-dot">.</span></div>
+      <div class="nav-links">
+        <a href="#contact"><i class="fas fa-phone-alt"></i> تواصل</a>
+        <a href="#early"><i class="fas fa-user-plus"></i> اشترك</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div data-aos="fade-left">
+        <h1>super app <span class="highlight">اطلبني</span> <br> مدينتك في جيبك</h1>
+        <p>نقل - عزائم - مناسبات - خدمات منزلية. كل شيء في تطبيق واحد. انطلق قريباً.</p>
+        <div class="hero-buttons">
+          <a href="#early" class="btn btn-primary btn-large"><i class="fas fa-bell"></i> اشترك الآن</a>
+          <a href="#driverForm" class="btn btn-outline btn-large"><i class="fas fa-taxi"></i> كن سائقاً</a>
+        </div>
+        <div class="hero-stats">
+          <div><i class="fas fa-star" style="color: #fbbf24;"></i> 500+ مستخدم ينتظر</div>
+          <div><i class="fas fa-car"></i> 100+ سائق</div>
+        </div>
+      </div>
+      <div class="hero-image" data-aos="fade-right"></div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">خدمات <span>اطلبني</span> الشاملة</h2>
+      <div class="services-grid">
+        <div class="service-card" data-aos="zoom-in-up">
+          <div class="service-icon"><i class="fas fa-taxi"></i></div>
+          <h3>نقل (Taxi / توصيل)</h3>
+          <p>سيارات مريحة، أسعار ثابتة، وسائقين محترفين داخل المدينة.</p>
+        </div>
+        <div class="service-card" data-aos="zoom-in-up" data-aos-delay="50">
+          <div class="service-icon"><i class="fas fa-utensils"></i></div>
+          <h3>العزائم والطبخ</h3>
+          <p>اطبخ في بيتك أو اطلب طباخين متخصصين للمناسبات والولائم.</p>
+        </div>
+        <div class="service-card" data-aos="zoom-in-up" data-aos-delay="100">
+          <div class="service-icon"><i class="fas fa-calendar-alt"></i></div>
+          <h3>تنظيم المناسبات</h3>
+          <p>تجهيز حفلات، قاعات، تنسيق، كل ما تحتاج ليوم مميز.</p>
+        </div>
+        <div class="service-card" data-aos="zoom-in-up" data-aos-delay="150">
+          <div class="service-icon"><i class="fas fa-tools"></i></div>
+          <h3>خدمات منزلية</h3>
+          <p>سباك، كهربائي، نجار، تنظيف - بضغط زر.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Us Section -->
+  <section class="bg-light" id="why">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">لماذا <span>اطلبني</span> الخيار الأذكى؟</h2>
+      <div class="why-grid">
+        <div class="why-item" data-aos="flip-right">
+          <i class="fas fa-bolt"></i>
+          <h3>سرعة الاستجابة</h3>
+          <p>في أقل من 15 دقيقة تصلك الخدمة أينما كنت داخل المدينة.</p>
+        </div>
+        <div class="why-item" data-aos="flip-right" data-aos-delay="50">
+          <i class="fas fa-shield-alt"></i>
+          <h3>ضمان وأمان</h3>
+          <p>جميع مقدمي الخدمة مدققين، وتغطية تأمينية حتى 50,000 ريال.</p>
+        </div>
+        <div class="why-item" data-aos="flip-right" data-aos-delay="100">
+          <i class="fas fa-coins"></i>
+          <h3>أسعار شفافة</h3>
+          <p>عروض تنافسية، بدون رسوم خفية، وطرق دفع مرنة.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Registration Forms Section -->
+  <section class="forms-section" id="early">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">سجل اهتمامك <span>الآن</span></h2>
+      
+      <div class="forms-grid">
+        <!-- Early Client Form -->
+        <div class="form-card" data-aos="fade-left" id="clientForm">
+          <h3><i class="fas fa-user-astronaut"></i> عميل مبكر</h3>
+          <p>أدخل بياناتك ليصلك خصم 30% عند الإطلاق.</p>
+          <form id="clientFormElement">
+            <div class="input-group">
+              <input type="text" placeholder="الاسم كامل" id="clientName" required>
+            </div>
+            <div class="input-group">
+              <input type="tel" placeholder="رقم الجوال" id="clientPhone" required>
+            </div>
+            <div class="input-group">
+              <input type="email" placeholder="البريد الإلكتروني" id="clientEmail" required>
+            </div>
+            <div class="checkbox-label">
+              <input type="checkbox" id="clientAgree" required> أوافق على الشروط والأحكام.
+            </div>
+            <button type="submit" class="btn btn-primary form-btn">سجل الآن</button>
+          </form>
+        </div>
+
+        <!-- Driver Form -->
+        <div class="form-card" data-aos="fade-right" id="driverForm">
+          <h3><i class="fas fa-taxi"></i> سائق / كابتن</h3>
+          <p>كن شريكنا وسجل لتحصل على دعم أول شهر.</p>
+          <form id="driverFormElement">
+            <div class="input-group">
+              <input type="text" placeholder="الاسم" id="driverName" required>
+            </div>
+            <div class="input-group">
+              <input type="tel" placeholder="رقم الجوال" id="driverPhone" required>
+            </div>
+            <div class="input-group">
+              <select id="driverCity" required>
+                <option value="">المدينة</option>
+                <option value="الرياض">الرياض</option>
+                <option value="جدة">جدة</option>
+                <option value="الدمام">الدمام</option>
+                <option value="مكة">مكة</option>
+                <option value="المدينة">المدينة</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <input type="text" placeholder="رقم الهوية / الإقامة" id="driverId" required>
+            </div>
+            <button type="submit" class="btn btn-primary form-btn">انضم للفريق</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Provider Form (separate row) -->
+      <div class="provider-form-wrapper" data-aos="fade-up" id="providerForm">
+        <div class="form-card">
+          <h3><i class="fas fa-broom"></i> مزود خدمة (طباخ / سباك / مناسبات)</h3>
+          <p>قدم خدماتك لآلاف العملاء وزد دخلك.</p>
+          <form id="providerFormElement">
+            <div class="provider-grid">
+              <div class="input-group">
+                <input type="text" placeholder="الاسم" id="providerName" required>
+              </div>
+              <div class="input-group">
+                <input type="tel" placeholder="الجوال" id="providerPhone" required>
+              </div>
+              <div class="input-group">
+                <select id="providerType" required>
+                  <option value="">نوع الخدمة</option>
+                  <option value="طباخ مناسبات">طباخ مناسبات</option>
+                  <option value="سباك">سباك</option>
+                  <option value="كهربائي">كهربائي</option>
+                  <option value="منظم حفلات">منظم حفلات</option>
+                  <option value="نجار">نجار</option>
+                  <option value="منظفات">منظفات</option>
+                </select>
+              </div>
+              <div class="input-group">
+                <input type="text" placeholder="المدينة" id="providerCity" required>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary form-btn">قدم كخدمي</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Offers Section -->
+  <section id="offers">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">عروض حصرية <span>ونقاط</span> اطلبني</h2>
+      <div class="offers-grid">
+        <div class="offer-card" data-aos="fade-up">
+          <h3>🚀 30% خصم</h3>
+          <p>للأعضاء المسجلين قبل الإطلاق.</p>
+        </div>
+        <div class="offer-card invert" data-aos="fade-up" data-aos-delay="30">
+          <h3>⭐ نقاط اطلبني</h3>
+          <p>اكسب نقاط مع كل خدمة واستبدلها بمكافآت.</p>
+        </div>
+        <div class="offer-card" data-aos="fade-up" data-aos-delay="60">
+          <h3>🎁 أحالة الأصدقاء</h3>
+          <p>احصل على 200 ريال رصيد مجاني لكل صديق.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="bg-light" id="contact">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">تواصل مع <span>فريق</span> اطلبني</h2>
+      <div class="contact-form-wrapper" data-aos="zoom-in">
+        <div class="form-card">
+          <form id="contactFormElement">
+            <div class="input-group">
+              <input type="text" placeholder="الاسم" id="contactName" required>
+            </div>
+            <div class="input-group">
+              <input type="email" placeholder="البريد الإلكتروني" id="contactEmail" required>
+            </div>
+            <div class="input-group">
+              <textarea rows="4" placeholder="رسالتك..." id="contactMsg" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary form-btn">إرسال</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-logo">اطلبني<span>.</span></div>
+      <p class="copyright">جميع الحقوق محفوظة © 2025 | جاهز لنغير مدينتك</p>
+      <div class="social-links">
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-linkedin"></i>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+  <!-- Custom JS -->
+  <script src="script.js"></script>
+</body>
+</html>
