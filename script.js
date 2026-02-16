@@ -5,23 +5,29 @@ AOS.init({
   easing: 'ease-out-cubic' 
 });
 
-// ===== تهيئة Firebase =====
-// استبدل هذه المعلومات بمشروع Firebase الخاص بك
+// ===== تهيئة Firebase (باستخدام الطريقة الحديثة) =====
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
+import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore.js";
+
+// Firebase configuration من موقعك
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAGE_BUCKET",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyBlBDz6gsnSlgXIaZu_WuMtBl6HzdpsAOM",
+  authDomain: "callme-app-b8974.firebaseapp.com",
+  projectId: "callme-app-b8974",
+  storageBucket: "callme-app-b8974.firebasestorage.app",
+  messagingSenderId: "626505389475",
+  appId: "1:626505389475:web:5ac6d4ba65ba47be5f7616",
+  measurementId: "G-GD8N851YSR"
 };
 
 // تهيئة Firebase
 let db;
+let app;
+
 try {
-  firebase.initializeApp(firebaseConfig);
-  db = firebase.firestore();
-  console.log('✅ Firebase initialized successfully');
+  app = initializeApp(firebaseConfig);
+  db = getFirestore(app);
+  console.log('✅ Firebase initialized successfully with project:', firebaseConfig.projectId);
 } catch (error) {
   console.error('❌ Firebase initialization error:', error);
 }
@@ -42,7 +48,7 @@ function showToast(message, isSuccess = true) {
 async function saveToFirestore(collectionName, data) {
   // إذا لم يتم تهيئة Firebase بنجاح
   if (!db) {
-    console.log('⚠️ Firebase not initialized -模拟保存:', { collectionName, data });
+    console.log('⚠️ Firebase not initialized - تجربة:', { collectionName, data });
     showToast('✅ تم التسجيل (بيئة تجريبية)', true);
     return true;
   }
@@ -51,13 +57,14 @@ async function saveToFirestore(collectionName, data) {
     // إضافة توقيت للبيانات
     const dataWithTimestamp = {
       ...data,
-      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-      userAgent: navigator.userAgent
+      timestamp: serverTimestamp(),
+      userAgent: navigator.userAgent,
+      page: window.location.href
     };
     
     // حفظ في Firestore
-    await db.collection(collectionName).add(dataWithTimestamp);
-    console.log(`✅ Data saved to ${collectionName}:`, data);
+    const docRef = await addDoc(collection(db, collectionName), dataWithTimestamp);
+    console.log(`✅ Data saved to ${collectionName} with ID:`, docRef.id);
     showToast('✅ تم الحفظ بنجاح في Firebase', true);
     return true;
   } catch (error) {
@@ -101,6 +108,12 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
       }
       
+      // التحقق من رقم الجوال (رقم سعودي بسيط)
+      if (!phone.match(/^05\d{8}$/)) {
+        showToast('❌ الرجاء إدخال رقم جوال سعودي صحيح (05xxxxxxxx)', false);
+        return;
+      }
+      
       // حفظ البيانات
       const success = await saveToFirestore('early_clients', {
         name,
@@ -141,6 +154,11 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
       }
       
+      if (!phone.match(/^05\d{8}$/)) {
+        showToast('❌ الرجاء إدخال رقم جوال سعودي صحيح (05xxxxxxxx)', false);
+        return;
+      }
+      
       const success = await saveToFirestore('drivers', {
         name,
         phone,
@@ -176,6 +194,11 @@ document.addEventListener('DOMContentLoaded', function() {
       
       if (type === '') {
         showToast('❌ الرجاء اختيار نوع الخدمة', false);
+        return;
+      }
+      
+      if (!phone.match(/^05\d{8}$/)) {
+        showToast('❌ الرجاء إدخال رقم جوال سعودي صحيح (05xxxxxxxx)', false);
         return;
       }
       
@@ -244,4 +267,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
+  
+  // ===== إحصائيات الموقع (تظهر بعد تحميل الصفحة) =====
+  console.log('✅ موقع دزلي جاهز للعمل!');
 });
